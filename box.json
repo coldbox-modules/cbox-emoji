@@ -20,12 +20,9 @@
             "url":"http://www.apache.org/licenses/LICENSE-2.0"
         }
     ],
-    "contributors":[
-    ],
-    "dependencies":{
-    },
-    "installPaths":{
-    },
+    "contributors":[],
+    "dependencies":{},
+    "installPaths":{},
     "scripts":{
         "postVersion":"package set location='coldbox-modules/cbox-emoji#v`package version`'",
         "onRelease":"publish",
