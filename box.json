@@ -12,7 +12,7 @@
     "bugs":"https://github.com/coldbox-modules/cbox-emoji/issues",
     "shortDescription":"ColdBox library for providing emoji's to any application",
     "slug":"cbemoji",
-    "type":"coldbox-modules",
+    "type":"modules",
     "keywords":"emoji, emoji, and more emoji",
     "license":[
         {

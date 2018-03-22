@@ -1,7 +1,7 @@
 /**
 * Emoji Service
 */
-component singleton{
+component accessors="true" singleton{
 
 	/**
 	 * The emoji map holder
