@@ -1,9 +1,9 @@
 {
     "name":"Emoji Module",
-    "version":"1.0.0",
+    "version":"1.0.1",
     "author":"Ortus Solutions, Corp",
     "homepage":"https://www.ortussolutions.com",
-    "location":"coldbox-modules/cbox-emoji#v1.0.0",
+    "location":"coldbox-modules/cbox-emoji#v1.0.1",
     "documentation":"https://github.com/coldbox-modules/cbox-emoji",
     "repository":{
         "type":"git",
