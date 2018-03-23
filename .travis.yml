@@ -45,7 +45,7 @@ script:
   # run our dependency install to ensure the workbench is in place
   - box install
   # run our matrix server
-  - box server start serverConfigFile=server-${ENGINE}
+  - box server start serverConfigFile=server-${ENGINE}.json
   # run our tests
   - box testbox run --verbose
   # move back to build dir to build it
@@ -59,7 +59,6 @@ after_failure:
   # Spit out our Commandbox log in case we need to debug
   - box server log name=${ENGINE}
   - cat `box system-log`
-
 
 deploy:
   # Module Deployment
