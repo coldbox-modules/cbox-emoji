@@ -12,7 +12,6 @@ component {
 	this.author 			= "Ortus Solutions, Corp";
 	this.webURL 			= "https://github.com/coldbox-modules/cbox-emoji";
 	this.description 		= "Emoji support for ColdBox Applications";
-	this.version			= "1.0.0";
 	// CF Mapping
 	this.cfmapping			= "cbemoji";
 	this.modelNamespace 	= "cbemoji";
