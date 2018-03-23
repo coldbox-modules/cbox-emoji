@@ -8,11 +8,13 @@
         "coldbox":"^4.3.0"
     },
     "devDependencies":{
-        "testbox":"^2.6.0"
+        "testbox":"^2.6.0",
+        "docbox":"^2.2.1+27"
     },
     "installPaths":{
         "coldbox":"coldbox",
-        "testbox":"testbox"
+        "testbox":"testbox",
+        "docbox":"docbox"
     },
     "testbox":{
         "runner":"http://localhost:60299/tests/runner.cfm"

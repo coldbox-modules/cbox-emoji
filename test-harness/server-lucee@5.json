@@ -1,7 +1,8 @@
 {
+    "name" : "lucee@5",
     "app":{
-        "serverHomeDirectory":".engine/adobe11",
-        "cfengine":"adobe@11"
+        "serverHomeDirectory":".engine/lucee5",
+        "cfengine":"lucee@5"
     },
     "web":{
         "http":{

@@ -1,7 +1,11 @@
 .vscode
 
+.artifacts/**
+.tmp/**
+
 test-harness/.engine/**
 test-harness/coldbox/**
+test-harness/docbox/**
 test-harness/testbox/**
 test-harness/logs/**
 
