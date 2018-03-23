@@ -28,7 +28,7 @@ component accessors="true" singleton{
 	*/
 	function init(){
 		variables.emojimap = deserializeJSON( 
-			fileRead( "emoji.json" )
+			fileRead( getDirectoryFromPath( getMetadata( this ).path ) & "emoji.json" )
 		);
 		return this;
 	}
@@ -164,7 +164,7 @@ component accessors="true" singleton{
 	struct function search( required target ){
 		return variables.emojiMap.filter( function( key, value ){
 			return ( findNoCase( target, key ) ? true : false );
-		} )
+		} );
 	}
 
 	/******************************** PRIVATE ************************************/

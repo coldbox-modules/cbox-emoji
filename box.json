@@ -23,6 +23,11 @@
     "contributors":[],
     "dependencies":{},
     "installPaths":{},
+    "ignore":[
+        "**/.*",
+        "test-harness",
+        "*/.md"
+    ],
     "scripts":{
         "postVersion":"package set location='coldbox-modules/cbox-emoji#v`package version`'",
         "onRelease":"publish",

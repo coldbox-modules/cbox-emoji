@@ -1,1 +1,8 @@
 .vscode
+
+test-harness/.engine/**
+test-harness/coldbox/**
+test-harness/testbox/**
+test-harness/logs/**
+
+logs/**
