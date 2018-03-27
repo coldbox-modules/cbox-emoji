@@ -55,7 +55,7 @@ component{
             )
             .run();
         // Check Exit Code?
-        if( shell.getExitCode() ){
+        if( getExitCode() ){
             return error( "Cannot continue building, tests failed!" );
         }
 
@@ -174,5 +174,14 @@ component{
             }
         } );
     }
+
+
+    /**
+	 * Gets the last Exit code to be used
+	 **/
+	function getExitCode() {
+		return (createObject( 'java', 'java.lang.System' ).getProperty( 'cfml.cli.exitCode' ) ?: 0);
+		
+	}
 
 }
