@@ -45,6 +45,8 @@ script:
   - box install
   # run our matrix server
   - box server start serverConfigFile="server-${ENGINE}.json"
+  # Startup the app
+  - curl http://localhost:60299
   # move back to build dir to build it
   - cd $TRAVIS_BUILD_DIR
   # Build out the project if tests pass
@@ -91,5 +93,4 @@ deploy:
 
 after_deploy:
   - cd ${TRAVIS_BUILD_DIR}/.tmp/${MODULE_ID}
-  - ls -lR $TRAVIS_BUILD_DIR/.tmp/apidocs
   - if [ ${ENGINE} = 'lucee@45' ]; then box forgebox publish; fi
