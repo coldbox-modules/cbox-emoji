@@ -3,8 +3,8 @@ component{
     function init(){
         // Setup Pathing
         variables.cwd           = getCWD().reReplace( "\.$", "" );
-        variables.artifactsDir  = cwd & ".artifacts";
-        variables.buildDir      = cwd & ".tmp";
+        variables.artifactsDir  = cwd & "/.artifacts";
+        variables.buildDir      = cwd & "/.tmp";
         variables.apiDocsURL    = "http://localhost:60299/apidocs/";
         variables.testRunner    = "http://localhost:60299/tests/runner.cfm";
         // Source Excludes

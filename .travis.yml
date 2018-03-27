@@ -9,7 +9,7 @@ env:
     - MODULE_ID=cbemoji
     - TARGET_VERSION=1.1.0
   matrix:
-    - ENGINE=lucee@4.5
+    - ENGINE=lucee@45
     - ENGINE=lucee@5
     - ENGINE=adobe@11
     - ENGINE=adobe@2016
@@ -36,7 +36,6 @@ install:
   - box config set endpoints.forgebox.APIToken=$FORGEBOX_API_TOKEN > /dev/null
   # Setup for our tests
   - mkdir test-harness/tests/results
-  - sudo chmod -R 775 test-harness/tests/results
 
 # Build script - note module versioning is passed to ANT
 script:
@@ -45,7 +44,7 @@ script:
   # run our dependency install to ensure the workbench is in place
   - box install
   # run our matrix server
-  - box server start serverConfigFile=server-${ENGINE}.json
+  - box server start serverConfigFile="server-${ENGINE}.json"
   # move back to build dir to build it
   - cd $TRAVIS_BUILD_DIR
   # Build out the project if tests pass
