@@ -100,6 +100,7 @@ component{
 
         // Generate Docs
         print.greenLine( "Generating API Docs, please wait..." ).toConsole();
+        directoryCreate( variables.buildDir & "/apidocs", true, true );
         cfhttp( 
             url="#variables.apiDocsURL#index.cfm?version=#arguments.version#&path=#URLEncodedFormat( variables.buildDir & "/apidocs" )#",
             result="local.docsOutput" 
