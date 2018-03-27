@@ -6,6 +6,7 @@ component{
         variables.artifactsDir  = cwd & ".artifacts";
         variables.buildDir      = cwd & ".tmp";
         variables.apiDocsURL    = "http://localhost:60299/apidocs/";
+        variables.testRunner    = "http://localhost:60299/tests/runner.cfm";
         // Source Excludes
         variables.excludes      = [
             ".gitignore",
@@ -44,7 +45,24 @@ component{
         buildID=createUUID(),
         branch="development"
     ){
-        print.greenLine( "Building #arguments.projectName# v#arguments.version# from #cwd#" ).toConsole();
+
+        // Tests First, if they fail then exit
+        print.blueLine( "Testing the package, please wait..." ).toConsole();
+        command( 'testbox run' )
+            .params( 
+                runner = variables.testRunner,
+                verbose = true
+            )
+            .run();
+        // Check Exit Code?
+        if( shell.getExitCode() ){
+            return error( "Cannot continue building, tests failed!" );
+        }
+
+        // Build Notice
+        print.line()
+            .boldMagentaLine( "Building #arguments.projectName# v#arguments.version#+#arguments.buildID# from #cwd# using the #arguments.branch# branch." )
+            .toConsole();
 
         // Prepare exports directory
         variables.exportsDir = variables.artifactsDir & "/#projectName#/#arguments.version#";
@@ -62,7 +80,7 @@ component{
         fileWrite( "#variables.projectBuildDir#/#projectName#-#version#+#buildID#", "Built with love on #dateTimeFormat( now(), "full")#" );
 
         // Updating Placeholders
-        print.greenLine( "Updating version identifier" ).toConsole();
+        print.greenLine( "Updating version identifier to #arguments.version#" ).toConsole();
         command( 'tokenReplace' )
             .params( 
                 path = "/#variables.projectBuildDir#/**",
@@ -71,7 +89,7 @@ component{
             )
             .run();
         
-        print.greenLine( "Updating build identifier" ).toConsole();
+        print.greenLine( "Updating build identifier to #arguments.buildID#" ).toConsole();
         command( 'tokenReplace' )
             .params( 
                 path = "/#variables.projectBuildDir#/**",
@@ -127,6 +145,9 @@ component{
         // Copy box.json for convenience
         fileCopy( "#variables.projectBuildDir#/box.json", variables.exportsDir );
 
+        print.line()
+            .boldMagentaLine( "Build Process is done! Enjoy your build!" )
+            .toConsole();
     }
 
     /**

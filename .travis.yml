@@ -46,8 +46,6 @@ script:
   - box install
   # run our matrix server
   - box server start serverConfigFile=server-${ENGINE}.json
-  # run our tests
-  - box testbox run --verbose
   # move back to build dir to build it
   - cd $TRAVIS_BUILD_DIR
   # Build out the project if tests pass
